@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membuat Admin Template</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="js/all.js"></script>
+</head>
+<body>
+    
+    <script src="js/all.js"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/simple-datatables.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+
+    <body>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Awal Header-->
+            <a class="navbar-brand ps-3" href="index.html">Aplikasi Data Mahasiswa</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar -->
+            <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">profile</a></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Akhiri header -->
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_content">
+
+               <!--Awal Konten-->
+               <div class="container-fluid px-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <a type="button" class="btn btn-primary" href="">Tambah Siswa</a>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple" border="1">
+                            <!DOCTYPE html>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Siswa</title>
+    <style>
+        /* Gaya untuk tabel */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Gaya untuk sel dalam tabel */
+        td, th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        /* Gaya untuk header kolom ke-4 dan ke-5 */
+        th:nth-child(4),
+        th:nth-child(5) {
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header Anda (jika ada) -->
+    </header>
+
+    <main>
+        <!-- Konten Utama -->
+        <div class="container">
+            <h1>Data Siswa</h1>
+            
+            <!-- Pencarian -->
+            <div class="search-container">
+                <label for="search">Search:</label>
+                <input type="text" id="search" placeholder="Search...">
+            </div>
+
+            <!-- Pilihan jumlah entri per halaman -->
+            <label for="entriesPerPage">Entries per page:</label>
+            <select id="entriesPerPage">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+            </select>
+
+            <!-- Tabel yang dibungkus dalam kotak -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>NIS</th>
+                            <th>Nama Siswa</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Isi tabel disini -->
+                        <tr>
+                            <td>1</td>
+                            <td>8001</td>
+                            <td>Andi Wijaya</td>
+                            <td>Laki-laki</td>
+                            <td>Wonogiri</td>
+                            <td>
+                                <a href="/edit_siswa">Edit</a> | <a href="/hapus_siswa">Hapus</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>8002</td>
+                            <td>Anita Larasati</td>
+                            <td>Perempuan</td>
+                            <td>Solo</td>
+                            <td>
+                                <a href="/edit_siswa">Edit</a> | <a href="/hapus_siswa">Hapus</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Showing entries -->
+            <div id="showing-entries"></div>
+        </div>
+        <!-- Akhiri Konten Utama -->
+    </main>
+
+    <footer class="py-4 bg-light mt-auto">
+        <!-- Footer Anda (jika ada) -->
+        <div class="container-fluid px-4">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="text-muted">Copyright &copy; Demo 2022</div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Gaya untuk kotak yang memuat tabel */
+        .table-container {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        /* Gaya untuk elemen pencarian */
+        .search-container {
+            margin-top: 10px;
+            text-align: right;
+        }
+    </style>
+
+    <script>
+        // Menggunakan JavaScript untuk mengendalikan jumlah entri per halaman dan pencarian
+        const entriesPerPageSelect = document.getElementById("entriesPerPage");
+        const tableBody = document.querySelector("tbody");
+        const showingEntries = document.getElementById("showing-entries");
+        const searchInput = document.getElementById("search");
+
+        entriesPerPageSelect.addEventListener("change", () => {
+            const entriesPerPage = parseInt(entriesPerPageSelect.value, 10);
+            const rows = tableBody.querySelectorAll("tr");
+
+            rows.forEach((row, index) => {
+                row.style.display = index < entriesPerPage ? "table-row" : "none";
+            });
+
+            // Menghitung dan menampilkan teks "Showing [x] to [y] of [total] entries"
+            const visibleRows = Array.from(rows).filter(row => row.style.display !== "none");
+            const firstVisibleRow = visibleRows.length > 0 ? visibleRows[0].rowIndex : 0;
+            const lastVisibleRow = firstVisibleRow + visibleRows.length - 1;
+            const totalRows = rows.length;
+
+            showingEntries.textContent = `Showing ${firstVisibleRow} to ${lastVisibleRow} of ${totalRows} entries`;
+        });
+
+        searchInput.addEventListener("input", () => {
+            const keyword = searchInput.value.toLowerCase();
+            const rows = tableBody.querySelectorAll("tr");
+
+            rows.forEach(row => {
+                const rowData = Array.from(row.querySelectorAll("td")).map(cell => cell.textContent.toLowerCase());
+                const match = rowData.some(data => data.includes(keyword));
+                row.style.display = match ? "table-row" : "none";
+            });
+        });
+    </script>
+</body>
+</html>
